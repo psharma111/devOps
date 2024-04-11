@@ -1,0 +1,28 @@
+version: ‘3’
+services: 
+   frontend:
+      build: ./frontend
+      expose: 
+            - 3000
+      ports:
+          - 3000:3000
+  
+     command: npm run start
+
+
+   backend: 
+       build: ./backend
+
+       expose: 
+            - 5000
+      ports:
+          - 5000:5000
+
+   nginx_local_dev_proxy:
+    
+   image: nginx:latest
+    ports:
+      - target: 3000
+        published: 80
+        protocol: tcp
+        mode: host
