@@ -15,5 +15,5 @@ COPY backend ./
 # Copy built frontend to backend
 COPY --from=builder /app/build /app/public
 
-EXPOSE 3000
+EXPOSE 3001
 CMD ["node", "server.js"]
